@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+ <head>
+  <title>无忌个人工作室-您身边的电脑高手</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta name="generator" content="wuji008">
+  <meta name="author" content="wuji008">
+  <meta name="keywords" content="wuji008,无忌,电脑高手,吃货,美食侦探,摄影师,数码发烧友,驴友,文艺青年,无忌论坛,绿色影像,无忌空间,张无忌">
+  <meta name="description" content="嗯，这是无忌wuji008的人个主页！本人长期从事互联网事业，专注于网络维护，网站制作，网络营销，品牌包装。同时也兼营美食点评，旅游策划，影像艺术创作。">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script language="javascript"> 
+(function(){
+	var res = GetRequest();
+	var par = res['index'];
+	if(par!='gfan'){
+	var ua=navigator.userAgent.toLowerCase();
+	var contains=function (a, b){
+	if(a.indexOf(b)!=-1){return true;}
+	};
+	var toMobileVertion = function(){
+	window.location.href = 'http://wuji008.cn/m/'
+	}
+ 
+	if(contains(ua,"ipad")||(contains(ua,"rv:1.2.3.4"))||(contains(ua,"0.0.0.0"))||(contains(ua,"8.0.552.237"))){return false}
+	if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla")) ||(contains(ua,"android") && contains(ua,"opera"))
+	||contains(ua,"ucweb7")||contains(ua,"iphone")){toMobileVertion();}
+	}
+})();
+function GetRequest() {
+   var url = location.search; //获取url中"?"符后的字串
+  var theRequest = new Object();
+   if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      for(var i = 0; i < strs.length; i ++) {
+         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+      }
+   }
+   return theRequest;
+}
+</script>
+ </head>
+ <body>
+ <div class="wrap">
+ 	<div id="nav">
+    	<div id="logo"><img src="images/logo.jpg"></div>
+        <div id="info">
+        	<h4>无忌<span>&nbsp;@wuji008</span>
+            	<a href="http://weibo.com/wuji008" target="_blank"><img src="images/weibo16.png" alt="无忌微博"/></a>
+            </h4>
+        	
+        	<p>美食侦探，摄影师，数码发烧友，驴友，文艺青年</p></div>
+	</div>
+	
+    <div id="wx">
+		<img src="images/wx.jpg" alt="关注无忌微信:wuji008" /><br />
+        微信扫一扫，马上约我，提供免费服务~
+	</div>
+	
+    <div id="foot">
+		<p>专注：网络维护，网站制作，网络营销，品牌包装</p>
+        &copy;2006-2017 无忌个人工作室
+		<p id="deadline" style="font-size:8px;"></p>
+	</div>
+ </div>
+ </body>
+<!--deadline-->
+<script>
+    function getDistanceTime(time,deadline){
+        var endTime= new Date(Date.parse(time.replace(/-/g, "/")));/*replace将时间字符串中所有的'-'替换成'/',parse将时间格式的字符串转换成毫秒*/
+        var nowTime = new Date();
+        var distance =endTime.getTime() - nowTime.getTime();/*getTime把一个date对象转换成毫秒*/
+
+        var day = 0;
+        var hour = 0;
+        var minute = 0;
+        var second = 0;
+
+        if(distance >= 0){
+            day = Math.floor(distance/1000/60/60/24);
+            hour = Math.floor(distance/1000/60/60%24);
+            minute = Math.floor(distance/1000/60%60);
+            second = Math.floor(distance/1000%60);
+        }else{
+            alert("目标日期小于当前日期!")
+        }
+
+        //document.getElementById(deadline).innerHTML = "距离生命结束还有："+day + "天" +  hour + "时" + minute + "分" + second + "秒";
+		document.getElementById(deadline).innerHTML = "距离生命结束还有："+day + "天";
+    }
+//    setInterval(function(){getDistanceTime('2016/05/19 12:00:00','deadline');},0);
+    setInterval(function(){getDistanceTime('2066-10-16 23:59:59','deadline');},0);
+</script>
+
+<!--baidutongji-->
+ <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?34886e8b02b0f9b2b6b8bcee0aff1a71";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</html>

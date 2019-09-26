@@ -1,0 +1,92 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>潘博王晞婚宴邀请函</title>
+<meta name="keywords" content="潘博,王晞,婚礼,邀请函,结婚啦,2014,白头偕老,早生贵子" />
+<meta name="description" content="潘博王晞结婚啦，酒席定于2014年1月10日下午5:30，在广州珠江新城高德置地广场春商城5楼，宴江南，" />
+<meta name="author" content="wuji" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="images/hongshuangxi.ico" type="image/x-icon">
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery.mobile-1.4.0.min.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="js/jquery.mobile-1.4.0.min.js" type="text/javascript"></script>
+<script src="js/Validform_v5.3.2_min.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>潘博王晞婚宴请柬</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+
+	<div id="banner">
+	<img src="images/a.jpg" alt="结婚相片">
+	</div>
+
+	<div id="info">
+		<ul data-role="listview">
+			<li data-role="list-divider">时间</li>
+				<li>2014年1月10日下午5时30分</li>
+			<li data-role="list-divider">地点</li>
+				<li>广州珠江新城(地铁站) 高德置地广场<br \>春商场5楼 宴江南酒家</li>
+			<li data-role="list-divider">联系电话</li>
+				<li>潘博：135-8040-9994</li>
+				<li>王晞：186-2090-2166</li>
+		</ul>
+	</div>
+
+    <div id="join">
+	  <form class="registerform" action="js/ajax_post.php">
+
+			<label for="course">参加小调查：</label>
+			<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+			<input name="course" id="course1" type="radio" checked="checked" value="参加">
+			<label for="course1">参加</label>
+			<input name="course" id="course2" type="radio" value="不参加">
+			<label for="course2">不参加</label>
+			</fieldset>
+
+            <label for="name">姓名：<span>请输入中文姓名(2至18个字)</span></label>
+            <input type="text" value="" name="name" class="inputxt" datatype="s2-18|zh2-18" nullmsg="请输入您的中文姓名！" errormsg="请输入中文姓名2至18个字！" size="30" />
+            
+            <label for="tel">电话：<span>请输入手机或固话(数字),方便联系</span></label>
+            <input type="text" value="" name="tel" class="inputxt" datatype="n8-16" nullmsg="请输入您的电话号码！" errormsg="请输入正确的手机或固话号码(数字)！" size="30" /> 
+          
+            <label for="msg">留言：</label>
+            <textarea name="msg" style="font-size:12px;" maxlength="200" tip="请在这里输入您的其它信息或留言。" altercss="gray" class="gray" value="">请在这里输入您的其它信息或留言。</textarea>
+          
+			<a class="ui-btn ui-btn-b ui-corner-all ui-btn-inline" href="javascript:void(0);" id="btn_sub">提交</a>
+
+			<a class="ui-btn ui-btn-a ui-corner-all ui-btn-inline" href="javascript:void(0);" id="btn_reset">重置</a>
+			
+          
+	   </form>
+
+	</div><!-- /content -->
+</div><!-- /page -->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".registerform").Validform({
+		btnSubmit:"#btn_sub",
+		btnReset:"#btn_reset",
+		ajaxPost:true,
+		callback:function(data){
+			if(data.status=="y"){
+				setTimeout(function(){
+					$.Showmsg("^_^提交成功！我们已经为您安排好坐席，请准时光临！");
+					$(".registerform").each(function(index){$(".registerform")[index].reset();})
+				},1000);
+			}else{$.Showmsg(":(提交失败！请重新填写或联系我们！");}
+		}
+	});
+});
+</script>
+</body>
+</html>

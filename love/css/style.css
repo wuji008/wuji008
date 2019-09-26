@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document */
+#banner {margin:0 auto;max-width:700px;}
+#banner img {width:100%;height:100%;max-width:700px;border-radius: 10px;-moz-border-radius: 10px;-webkit-box-shadow:2px 2px 2px gray;
+-moz-box-shadow:2px 2px 2px gray;}
+#info {margin:25px 0px;}
+
+label {color:#38c;}
+label span {font-size:10px;color:#000;}
+.tips{ font-size:12px; line-height:20px; color:#6a6a6a; font-family:"宋体"; margin-top:10px;}
+/*==========以下部分是Validform必须的===========*/
+.Validform_checktip{
+	margin-left:8px;
+	line-height:20px;
+	height:20px;
+	overflow:hidden;
+	color:#999;
+	font-size:12px;
+}
+.Validform_right{
+	color:#71b83d;
+	padding-left:20px;
+	background:url(../js/right.png) no-repeat left center;
+}
+.Validform_wrong{
+	color:red;
+	padding-left:20px;
+	white-space:nowrap;
+	background:url(../js/error.png) no-repeat left center;
+}
+.Validform_loading{
+	padding-left:20px;
+	background:url(../js/onLoad.gif) no-repeat left center;
+}
+.Validform_error{
+	background-color:#ffe7e7;
+}
+#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');}
+#Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
+#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#38c;}
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
+#Validform_msg a.Validform_close:hover{color:#cc0;}
+#Validform_msg .Validform_info{padding:8px;border:1px solid #38c; border-top:none; text-align:left;}
+td{line-height:38px;}
+.Validform_checktip{margin-left:0;}
+.info{
+	border:1px solid #ccc; 
+	padding:2px 20px 2px 5px; 
+	color:#666; 
+	position:absolute;
+	display:none;
+	line-height:20px;
+	background-color:#fff;
+}
+.dec {
+    bottom: -8px;
+    display: block;
+    height: 8px;
+    overflow: hidden;
+    position: absolute;
+    left: 10px;
+    width: 17px;
+}
+.dec s {
+    font-family: simsun;
+    font-size: 16px;
+    height: 19px;
+    left: 0;
+    line-height: 21px;
+    position: absolute;
+    text-decoration: none;
+    top: -9px;
+    width: 17px;
+}
+.dec .dec1 {
+    color: #ccc;
+}
+.dec .dec2 {
+    color: #fff;
+    top: -10px;
+}
