@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>伊朗里亚尔今日汇率</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no" />
-<script src="https://www.nowapi.com/style/jquery/1.11.3/jquery.min.js"></script>
+<title>伊朗里亚尔汇率</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+<script type="text/javascript" src="https://www.nowapi.com/style/jquery/1.11.3/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
      $.ajax({
@@ -27,10 +27,40 @@ for(var i in data.result){
 	}else if (i=="update"){
 		var tt = "更新时间："+data.result[i];
 	}
-		var aa = "1伊朗里亚尔&nbsp;=&nbsp;<span>"+rr+"</span>人民币</br></br>";
-		var bb = "1人民币&nbsp;=&nbsp;<span>"+rr2+"</span>伊朗里亚尔</br></br>";
-		var cc = aa+bb+tt;
+		var aa = "1伊朗里亚尔="+rr+"人民币</br></br>";
+		var bb = "1人民币="+rr2+"伊朗里亚尔</br></br>";
+		var cc = aa+bb;
 		document.getElementById("irr").innerHTML=(cc);
+	}},
+    error:function(){alert('fail');}
+	});
+});
+
+$(document).ready(function(){
+     $.ajax({
+        type          : 'get',
+        async         : false,
+        url           : 'http://api.k780.com/?app=finance.rate&scur=IRR&tcur=USD&appkey=57386&sign=015b3157b54ef9f1677505b37873c067&format=json&jsoncallback=data',
+        dataType      : 'jsonp',
+        jsonp         : 'callback',
+        jsonpCallback : 'data',
+        success       : function(data){
+if(data.success!='1'){
+    alert("系统升级中，请60分钟后再用！");
+    exit;
+}
+//遍历
+for(var i in data.result){
+	if (i=="rate"){
+		var rr3 = data.result[i];
+		var rr4 = (1/rr3).toFixed(5);
+	}else if (i=="update"){
+		var tt2 = "更新时间："+data.result[i];
+	}
+		var aa2 = "1伊朗里亚尔="+rr3+"美元</br></br>";
+		var bb2 = "1美元="+rr4+"伊朗里亚尔</br></br>";
+		var cc2 = aa2+bb2+tt2;
+		document.getElementById("irr2").innerHTML=(cc2);
 	}},
     error:function(){alert('fail');}
 	});
@@ -38,6 +68,12 @@ for(var i in data.result){
 </script>
 <!--计算器样式-->
 <style type="text/css">
+	#irr span{
+		color:red;
+	}
+	#irr2 span{
+		color:blue;
+	}
 	.but_ac{
     		width: 80px;
     		height: 60px;
@@ -58,12 +94,9 @@ for(var i in data.result){
             background-color: black;
             text-align:right; 
     	}
-	span{
-	    color:red;
-	}
 </style>
 <!--计算器js-->
-<script>
+<script type="text/javascript">
 	window.onload=function(){
 		var result;
 		var str=[];
@@ -90,7 +123,7 @@ for(var i in data.result){
 <body>
 <div align=center>
 <div id="irr"></div>
-
+<div id="irr2"></div>
 <h5>计算器</h5>
 <!-- 计算器 -->
  <table>
@@ -127,7 +160,7 @@ for(var i in data.result){
       	<td><input class="but" type="button" value="=" style="background-color:orange ;color:white"></td>
       </tr>
 </table>
-<p>@伊周汇Focus</p>
+
 </div>
 </body>
 </html>
