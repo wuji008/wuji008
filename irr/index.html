@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
 <script type="text/javascript" src="https://www.nowapi.com/style/jquery/1.11.3/jquery.min.js"></script>
 <script>
-$(document).on("click", "#bt1", function () {
+$(document).on("click touchstart", "#bt1", function () {
     $.ajax({
         type          : 'get',
         async         : false,
@@ -35,7 +35,7 @@ for(var i in data.result){
 	});  
 });
 
-$(document).on("click", "#bt2", function () {
+$(document).on("click touchstart", "#bt2", function () {
 	$.ajax({
         type          : 'get',
         async         : false,
@@ -129,8 +129,8 @@ for(var i in data.result){
 <body>
 <div align=center>
 点击查询汇率：</br>
-<div id="bt1">人民币CNY</div>&nbsp;
-<div id="bt2">美元USD</div></br></br>
+<button id="bt1">人民币CNY</button>&nbsp;
+<button id="bt2">美元USD</button></br></br>
 <div id="irr"></div>
 <div id="irr2"></div>
 <span>计算器</span>
