@@ -3,9 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>伊朗里亚尔今日汇率IRR_rate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
 <script type="text/javascript" src="https://www.nowapi.com/style/jquery/1.11.3/jquery.min.js"></script>
 <script>
-$(document).on("click", "#bt1", function () {
+$(document).ready(function(){
     $.ajax({
         type          : 'get',
         async         : false,
@@ -32,9 +33,7 @@ for(var i in data.result){
 		document.getElementById("irr").innerHTML=(cc);
 	}}
 	});  
-});
 
-$(document).on("click", "#bt2", function () {
 	$.ajax({
         type          : 'get',
         async         : false,
@@ -52,6 +51,8 @@ for(var i in data.result){
 	if (i=="rate"){
 		var rr3 = data.result[i];
 		var rr4 = (1/rr3).toFixed(5);
+	}else if (i=="update"){
+		var tt2 = "<font size=2>更新时间："+data.result[i]+"</font></br></br>";
 	}
 		var aa2 = "<span>1</span>&nbsp;IRR=<span>"+rr3+"</span>USD</br></br>";
 		var bb2 = "<span>1</span>USD=<span>"+rr4+"</span>&nbsp;IRR</br></br>";
@@ -125,9 +126,6 @@ for(var i in data.result){
 </head>
 <body>
 <div align=center>
-点击查询汇率：
-<div id="bt1">人民币CNY</div>&nbsp;
-<div id="bt2">美元USD</div></br></br>
 <div id="irr"></div>
 <div id="irr2"></div>
 <span>计算器</span>
