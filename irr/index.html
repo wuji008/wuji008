@@ -27,8 +27,8 @@ for(var i in data.result){
 	}else if (i=="update"){
 		var tt = "更新时间："+data.result[i];
 	}
-		var aa = "1伊朗里亚尔="+rr+"人民币</br></br>";
-		var bb = "1人民币="+rr2+"伊朗里亚尔</br></br>";
+		var aa = "1伊朗里亚尔&nbsp;=&nbsp;<span>"+rr+"</span>人民币</br></br>";
+		var bb = "1人民币&nbsp;=&nbsp;<span>"+rr2+"</span>伊朗里亚尔</br></br>";
 		var cc = aa+bb+tt;
 		document.getElementById("irr").innerHTML=(cc);
 	}},
@@ -58,6 +58,9 @@ for(var i in data.result){
             background-color: black;
             text-align:right; 
     	}
+	span{
+	    color:red;
+	}
 </style>
 <!--计算器js-->
 <script>
