@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
 <script type="text/javascript" src="https://www.nowapi.com/style/jquery/1.11.3/jquery.min.js"></script>
 <script>
-$(document).ready(function(){
-     $.ajax({
+function CtoR(){
+    $.ajax({
         type          : 'get',
         async         : false,
         url           : 'http://api.k780.com/?app=finance.rate&scur=IRR&tcur=CNY&appkey=57377&sign=d351c8d920071a9c242aa6e13a6c803d&format=json&jsoncallback=data',
@@ -15,6 +15,10 @@ $(document).ready(function(){
         jsonp         : 'callback',
         jsonpCallback : 'data',
         success       : function(data){
+if(data.success!='1'){
+                alert("线路繁忙，请稍后再试！Line is busy,please try later.");
+                exit;
+            }
 //遍历
 for(var i in data.result){
 	if (i=="rate"){
@@ -23,17 +27,17 @@ for(var i in data.result){
 	}else if (i=="update"){
 		var tt = "<font size=2>更新时间："+data.result[i]+"</font></br></br>";
 	}
-		var aa = "1伊朗里亚尔="+rr+"人民币</br></br>";
-		var bb = "1人民币="+rr2+"伊朗里亚尔</br></br>";
+		var aa = "<span>1</span>里亚尔=<span>"+rr+"</span>人民币</br></br>";
+		var bb = "1人民币=<span>"+rr2+"</span>里亚尔</br></br>";
 		var cc = tt+aa+bb;
 		document.getElementById("irr").innerHTML=(cc);
 	}}
-	});
+	});  
 
-     
-});
+}
 
-function Dor(){
+
+function UtoR(){
 	$.ajax({
         type          : 'get',
         async         : false,
@@ -42,14 +46,18 @@ function Dor(){
         jsonp         : 'callback',
         jsonpCallback : 'data',
         success       : function(data){
+if(data.success!='1'){
+                alert("线路繁忙，请稍后再试！Line is busy,please try later.");
+                exit;
+            }
 //遍历
 for(var i in data.result){
 	if (i=="rate"){
 		var rr3 = data.result[i];
 		var rr4 = (1/rr3).toFixed(5);
 	}
-		var aa2 = "1伊朗里亚尔="+rr3+"美元</br></br>";
-		var bb2 = "1美元="+rr4+"伊朗里亚尔</br></br>";
+		var aa2 = "<span>1</span>里亚尔=<span>"+rr3+"</span>美元</br></br>";
+		var bb2 = "<span>1</span>美元=<span>"+rr4+"</span>里亚尔</br></br>";
 		var cc2 = aa2+bb2;
 		document.getElementById("irr2").innerHTML=(cc2);
 	}}
@@ -112,10 +120,12 @@ for(var i in data.result){
 </head>
 <body>
 <div align=center>
+点击查询伊朗里亚尔汇率：
+<button onclick="CtoR()">人民币RMB</button>&nbsp;
+<button onclick="UtoR()">美元USD</button></br></br>
 <div id="irr"></div>
-<button onclick="Dor()">USD</button>
 <div id="irr2"></div>
-<h5>计算器</h5>
+<span>计算器</span>
 <!-- 计算器 -->
  <table>
       <tr>
