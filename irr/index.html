@@ -27,8 +27,8 @@ for(var i in data.result){
 	}else if (i=="update"){
 		var tt = "<font size=2>更新时间："+data.result[i]+"</font></br></br>";
 	}
-		var aa = "<span>1</span>里亚尔=<span>"+rr+"</span>人民币</br></br>";
-		var bb = "1人民币=<span>"+rr2+"</span>里亚尔</br></br>";
+		var aa = "<span>1</span>IRR=<span>"+rr+"</span>CNY</br></br>";
+		var bb = "1CNY=<span>"+rr2+"</span>IRR</br></br>";
 		var cc = tt+aa+bb;
 		document.getElementById("irr").innerHTML=(cc);
 	}}
@@ -56,8 +56,8 @@ for(var i in data.result){
 		var rr3 = data.result[i];
 		var rr4 = (1/rr3).toFixed(5);
 	}
-		var aa2 = "<span>1</span>里亚尔=<span>"+rr3+"</span>美元</br></br>";
-		var bb2 = "<span>1</span>美元=<span>"+rr4+"</span>里亚尔</br></br>";
+		var aa2 = "<span>1</span>IRR=<span>"+rr3+"</span>USD</br></br>";
+		var bb2 = "<span>1</span>USD=<span>"+rr4+"</span>IRR</br></br>";
 		var cc2 = aa2+bb2;
 		document.getElementById("irr2").innerHTML=(cc2);
 	}}
@@ -120,8 +120,8 @@ for(var i in data.result){
 </head>
 <body>
 <div align=center>
-点击查询伊朗里亚尔汇率：
-<button onclick="CtoR()">人民币RMB</button>&nbsp;
+点击查询汇率：
+<button onclick="CtoR()">人民币CNY</button>&nbsp;
 <button onclick="UtoR()">美元USD</button></br></br>
 <div id="irr"></div>
 <div id="irr2"></div>
