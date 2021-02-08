@@ -15,29 +15,26 @@ $(document).ready(function(){
         jsonp         : 'callback',
         jsonpCallback : 'data',
         success       : function(data){
-if(data.success!='1'){
-    alert("系统升级中，请60分钟后再用！");
-    exit;
-}
 //遍历
 for(var i in data.result){
 	if (i=="rate"){
 		var rr = data.result[i];
 		var rr2 = (1/rr).toFixed(5);
 	}else if (i=="update"){
-		var tt = "更新时间："+data.result[i];
+		var tt = "<font size=2>更新时间："+data.result[i]+"</font></br></br>";
 	}
 		var aa = "1伊朗里亚尔="+rr+"人民币</br></br>";
 		var bb = "1人民币="+rr2+"伊朗里亚尔</br></br>";
-		var cc = aa+bb;
+		var cc = tt+aa+bb;
 		document.getElementById("irr").innerHTML=(cc);
-	}},
-    error:function(){alert('fail');}
+	}}
 	});
+
+     
 });
 
-$(document).ready(function(){
-     $.ajax({
+function Dor(){
+	$.ajax({
         type          : 'get',
         async         : false,
         url           : 'http://api.k780.com/?app=finance.rate&scur=IRR&tcur=USD&appkey=57386&sign=015b3157b54ef9f1677505b37873c067&format=json&jsoncallback=data',
@@ -45,26 +42,19 @@ $(document).ready(function(){
         jsonp         : 'callback',
         jsonpCallback : 'data',
         success       : function(data){
-if(data.success!='1'){
-    alert("系统升级中，请60分钟后再用！");
-    exit;
-}
 //遍历
 for(var i in data.result){
 	if (i=="rate"){
 		var rr3 = data.result[i];
 		var rr4 = (1/rr3).toFixed(5);
-	}else if (i=="update"){
-		var tt2 = "更新时间："+data.result[i];
 	}
 		var aa2 = "1伊朗里亚尔="+rr3+"美元</br></br>";
 		var bb2 = "1美元="+rr4+"伊朗里亚尔</br></br>";
-		var cc2 = aa2+bb2+tt2;
+		var cc2 = aa2+bb2;
 		document.getElementById("irr2").innerHTML=(cc2);
-	}},
-    error:function(){alert('fail');}
+	}}
 	});
-});
+}
 </script>
 <!--计算器样式-->
 <style type="text/css">
@@ -123,6 +113,7 @@ for(var i in data.result){
 <body>
 <div align=center>
 <div id="irr"></div>
+<button onclick="Dor()">USD</button>
 <div id="irr2"></div>
 <h5>计算器</h5>
 <!-- 计算器 -->
